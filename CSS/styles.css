@@ -5,7 +5,7 @@ header img{
     position: relative;
     height: 300px;
     margin: 0%;
-    left: 50%;
+    left: 10%;
 }
 
 header h1{
@@ -23,11 +23,13 @@ header h2 {
 }
 
 footer img {
-    width: 100px;
-    height: 100px;
-    display: flex;
-    flex-wrap: wrap;
+    max-width: 75px;
+    max-height: 75px;
+    display: inline-flex;
+    flex-wrap: nowrap;
     justify-content: space-evenly;
-    flex-grow: inherit;
-    flex-shrink: inherit;
+}
+
+#account {
+    display: inline;
 }
