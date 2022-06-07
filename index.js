@@ -2,6 +2,7 @@ const express = require ('express');
 const mysql = require("mysql");
 const cors = require("cors");
 
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 //Middlewares
@@ -10,19 +11,22 @@ app.use(cors());
 app.use('/api/user', authRoute);
 
 //Import Routes
-const authRoute = require('./app/auth/routes/auth');
+// Do I need this auth route for authorization?
+// const authRoute = require('./app/auth/routes/auth');
 
 const db = mysql.createConnection({
     user: "root",
     host: "localhost",
     password: "H3ctatungsten!&",
-    database: "useraccount"
-});
+    database: "bleufire_db"
+},
+console.log(`Connected to the inventory_db database.`)
+);
 
 app.post('/register', (req, res) => {
 
-    const LastName = req.body.LastName;
     const FirstName = req.body.FirstName;
+    const LastName = req.body.LastName;
     const email = req.body.email;
     const passwd = req.body.passwd;
 
@@ -53,6 +57,6 @@ app.post("/login", (req, res) => {
     );
 });
 
-app.listen(3000, () => 
+app.listen(PORT, () => 
 console.log('Server is up and running')
 );
