@@ -13,10 +13,15 @@
       <option>Choose workout</option>
         {{exercise_name}}
     </select>
-  </div>
 
-  <h3>How long did you workout? <input name="num" type="number" placeholder="enter time in number of minutes only" required></input> minute(s)</h3>
-  <h3>Calories Burned: input number *{{exercise_calories}}</h3>
+    <h3>How many minutes did you workout?</h3>
+    <select id="brandFilter" class="form-control">
+      <option>Choose time interval (increments of 5)</option>
+        {{exercise_minutes}}
+    </select>
+  </div>
+  {{!-- <h3>How long did you workout? <input name="num" type="number" placeholder="enter time in minutes" required></input> minute(s)</h3> --}}
+  <h3>Calories Burned: {{multiply exercise_minutes[exercise_calories]}}</h3>
 
   <div class="workoutLog">
     
