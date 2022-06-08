@@ -1,6 +1,7 @@
+const Sequelize = require('sequelize');
 require('dotenv').config();
 
-const Sequelize = require('sequelize');
+
 
 const sequelize = process.env.JAWSDB_URL
   ? new Sequelize(process.env.JAWSDB_URL)
@@ -20,8 +21,6 @@ module.exports = sequelize;
 
 
 // Code from the template povided by John
-// const Sequelize = require('sequelize');
-// require('dotenv').config();
 
 // const sequelize = new Sequelize(
 //   process.env.DB_NAME,
@@ -34,4 +33,3 @@ module.exports = sequelize;
 //   }
 // );
 
-// module.exports = sequelize;
