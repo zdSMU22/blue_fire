@@ -1,0 +1,25 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"/>
+
+<section class="container">
+  {{!-- <h3 class="gallery-name">{{gallery.name}}</h3> --}}
+  <div class="pageType">
+    <h1>Workout Journal</h1>
+  </div>
+
+  <div class ="dropdownMenus">
+    <h2>Today's Date {{exercise_date}}</h1>
+    <h3>What type of workout did you complete today?</h3>
+    <select id="brandFilter" class="form-control">
+      <option>Choose workout</option>
+        {{exercise_name}}
+    </select>
+  </div>
+
+  <h3>How long did you workout? <input name="num" type="number" placeholder="enter time in number of minutes only" required></input> minute(s)</h3>
+  <h3>Calories Burned: input number *{{exercise_calories}}</h3>
+
+  <div class="workoutLog">
+    
+  </div>
+  
+</section>
