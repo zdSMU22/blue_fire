@@ -3,7 +3,7 @@ const { workoutJournal, Painting } = require('../models');
 // Import the custom middleware
 const withAuth = require('../utils/auth');
 
-// GET all galleries for homepage
+// GET all exercises for homepage
 router.get('/', async (req, res) => {
   try {
     const dbworkoutJournalData = await workoutJournal.findAll({
@@ -15,12 +15,12 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    const galleries = dbworkoutJournalData.map((workoutJournal) =>
+    const exercises = dbworkoutJournalData.map((workoutJournal) =>
       workoutJournal.get({ plain: true })
     );
 
     res.render('homepage', {
-      galleries,
+      exercises,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
@@ -56,6 +56,9 @@ router.get('/workoutJournal/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
+// Leaving this here for the other pages
 
 // GET one painting
 // Use the custom middleware before allowing the user to access the painting
