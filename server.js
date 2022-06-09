@@ -4,9 +4,10 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-// const routes = require('./controllers');
+const routes = require('./controllers');
 // const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -33,10 +34,25 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
 //app.use(routes);
 app.get('/', (req, res) => {
   res.render('homepage');
 });
+
+app.get('/login', (req, res) => {
+  res.render('login');
+});
+
+app.get('/workoutjournal', (req, res) => {
+  res.render('workoutjournal');
+});
+
+app.get('/foodjournal', (req, res) => {
+  res.render('foodjournal');
+});
+
 
 
 // Will start and auto create tables when this is in the server.js
