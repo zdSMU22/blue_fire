@@ -7,19 +7,27 @@
   </div>
 
   <div class ="dropdownMenus">
-    <h2>Today's Date {{exercise_date}}</h1>
+    <h2>Today's Date is {{exercise_date}}</h1>
     <h3>What type of workout did you complete today?</h3>
     <select id="brandFilter" class="form-control">
       <option>Choose workout</option>
         {{exercise_name}}
     </select>
-  </div>
 
-  <h3>How long did you workout? <input name="num" type="number" placeholder="enter time in number of minutes only" required></input> minute(s)</h3>
-  <h3>Calories Burned: input number *{{exercise_calories}}</h3>
+    <h3>How many minutes did you workout?</h3>
+    <select id="minutes" class="form-control">
+      <option>Choose time interval</option>
+      <option>5</option>
+        {{exercise_minutes}}
+    </select>
+  </div>
+  {{!-- <h3>How long did you workout? <input name="num" type="number" placeholder="enter time in minutes" required></input> minute(s)</h3> --}}
+  <h3>Calories Burned: {{total_calories}}</h3>
 
   <div class="workoutLog">
     
   </div>
+
+  <script src=""></script>
   
 </section>

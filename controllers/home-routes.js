@@ -1,49 +1,49 @@
 const router = require('express').Router();
-const { workoutJournal, Painting } = require('../models');
+const { workoutJournal } = require('../models');
 // Import the custom middleware
 const withAuth = require('../utils/auth');
 
 // GET all exercises for homepage
-router.get('/', async (req, res) => {
-  try {
-    const dbworkoutJournalData = await workoutJournal.findAll({
-      include: [
-        {
-          model: Painting,
-          attributes: ['filename', 'description'],
-        },
-      ],
-    });
+// router.get('/', async (req, res) => {
+//   try {
+//     const dbworkoutJournalData = await workoutJournal.findAll({
+//       include: [
+//         {
+//           model: workoutjournal,
+//           attributes: ['filename', 'description'],
+//         },
+//       ],
+//     });
 
-    const exercises = dbworkoutJournalData.map((workoutJournal) =>
-      workoutJournal.get({ plain: true })
-    );
+//     const exercises = dbworkoutJournalData.map((workoutJournal) =>
+//       workoutJournal.get({ plain: true })
+//     );
 
-    res.render('homepage', {
-      exercises,
-      loggedIn: req.session.loggedIn,
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//     res.render('homepage', {
+//       exercises,
+//       loggedIn: req.session.loggedIn,
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
-// GET one workoutJournal
+// GET workoutJournal
 // Use the custom middleware before allowing the user to access the workoutJournal
-router.get('/workoutJournal/:id', withAuth, async (req, res) => {
+router.get('/workoutJournal', withAuth, async (req, res) => {
   try {
     const dbworkoutJournalData = await workoutJournal.findByPk(req.params.id, {
       include: [
         {
-          model: Painting,
+          model: WorkoutJournal,
           attributes: [
             'id',
-            'title',
-            'artist',
-            'exhibition_date',
-            'filename',
-            'description',
+            'exercise_name',
+            'exercise_minutes',
+            'exercise_calories',
+            'exercise_date:',
+            'total_calories',
           ],
         },
       ],
@@ -57,23 +57,6 @@ router.get('/workoutJournal/:id', withAuth, async (req, res) => {
   }
 });
 
-
-// Leaving this here for the other pages
-
-// GET one painting
-// Use the custom middleware before allowing the user to access the painting
-router.get('/painting/:id', withAuth, async (req, res) => {
-  try {
-    const dbPaintingData = await Painting.findByPk(req.params.id);
-
-    const painting = dbPaintingData.get({ plain: true });
-
-    res.render('painting', { painting, loggedIn: req.session.loggedIn });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {

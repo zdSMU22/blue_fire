@@ -1,10 +1,10 @@
 :root {
-  --primary: #3d5852;
-  --secondary: #86938f;
-  --tertiary: #5e877f;
-  --quatrinary: #6c6b67;
+  --primary: #ffffff;
+  --secondary: #828283;
+  --tertiary: #5e6487;
+  --quatrinary: #aeb1cf;
   --light: #e3e4e3;
-  --dark: #182c23;
+  --dark: #18192c;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
 }
@@ -29,7 +29,6 @@ a:visited {
 }
 
 header {
-  padding: 40px;
   text-align: center;
   background: var(--primary);
   color: var(--light);
@@ -41,17 +40,31 @@ main {
   flex-grow: 1;
 }
 
-aside {
+footer {
   flex: 0;
   background-color: var(--tertiary);
-  padding: 80px;
+  padding: 20px;
   text-align: left;
   color: var(--light);
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+footer h1{
+  font-size: 25px;
+  padding: 0 30px;
+}
+
+footer h3{
+  font-size: 20px;
+  padding: 0 60px;
 }
 
 nav {
   display: flex;
   background-color: var(--secondary);
+  
 }
 
 nav a {
@@ -66,15 +79,6 @@ nav a:hover {
   background-color: var(--dark);
 }
 
-.gallery {
-  flex: 4;
-  background-color: #fff;
-  padding: 50px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-}
 
 .btn-no-style {
   background: none;
@@ -92,18 +96,6 @@ img {
   height: auto;
 }
 
-.painting {
-  width: 50%;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 25px;
-}
-
-.painting-details {
-  text-align: center;
-  padding: 10px 20px;
-  font-weight: bold;
-}
 
 /* CARDS */
 .card {
@@ -144,21 +136,20 @@ img {
   font-weight: bold;
 }
 
-.gallery-name {
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  text-shadow: 2px 2px 5px var(--secondary);
-  border: 10px groove var(--light);
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-right: 100px;
-  padding-left: 100px;
-}
 
 /* LAYOUT */
 .container {
   display: flex;
   flex-flow: column wrap;
   align-content: flex-start;
-  align-items: center;
+  padding: 20px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.sum {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: flex-start;
+  padding: 20px;
 }

@@ -8,4 +8,3 @@ const Painting = require('./Painting');
 module.exports = {
     User, WorkoutJournal, Painting
 };
-
