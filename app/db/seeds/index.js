@@ -1,7 +1,9 @@
 const seedUsers = require('./user-seeds');
+const seedFitnessPlans = require('./fitnessplan-seeds');
 
 const seedAll = () => Promise.all([
-                                     seedUsers()
+                                     seedUsers(),
+                                     seedFitnessPlans()
                                   ]);
 
 module.exports = seedAll;                             
