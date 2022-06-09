@@ -1,11 +1,11 @@
 {
   "name": "blue-fire-fitness",
   "version": "1.0.0",
-  "main": "./app/server.js",
+  "main": "./server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./app/server.js",
-    "watch": "nodemon ./app/server.js",
+    "start": "node ./server.js",
+    "watch": "nodemon ./server.js",
     "seed": "node seeds/index.js"
   },
   "repository": {

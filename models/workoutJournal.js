@@ -27,6 +27,12 @@ workoutJournal.init(
       type: DataTypes.DATE,
       allowNull: false,
     },
+    total_calories: {
+      type: DataTypes.VIRTUAL,
+      get(){
+        return this.exercise_minutes * this.exercise_calories;
+      }
+    },
   },
   {
     sequelize,
@@ -36,4 +42,6 @@ workoutJournal.init(
   }
 );
 
-module.exports = workoutJournal;
+WorkoutJournal
+
+module.exports = WorkoutJournal;

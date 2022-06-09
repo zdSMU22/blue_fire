@@ -5,13 +5,13 @@
      <meta charset="UTF-8"/>
      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
      <title>Bleu Fire</title>
-     <link rel="stylesheet" href="./css/styles.css">
-     <link rel="stylesheet" href="./css/bootstrap.min.css">
+     <link rel="stylesheet" href="./css/style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0-beta1/js/bootstrap.min.js">
 </head>
 
 <body>
   <header>
-    <img src="/public/images/Bleu Fire Fitness.svg" alt="blue flame">
+    <img src="./images/Bleu Fire Fitness.png" alt="blue flame">
   </header>
   
   <nav>
@@ -24,16 +24,21 @@
   </nav>
   
   <main>
-    <aside>
-      <h2>Title</h2>
-    </aside>
-    <div class="workoutJournal">
+    
+    <div class="window">
       {{{body}}}
     </div>
   </main>
+
   {{#if loggedIn}}
-  <script src="/js/logout.js"></script>
+  <script src="/public/js/login.js"></script>
   {{/if}}
 </body>
+
+<footer>
+      <h1>Journals</h1>
+      <h3><a href="/views/workoutJournal.handlebars">Workout Journal</a></h3> 
+      <h3><a href="/views/foodjournal.handlebars">Food Journal</a></h3>
+    </footer>
 
 </html>
