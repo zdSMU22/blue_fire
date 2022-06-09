@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+     <meta charset="UTF-8"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     <title>Bleu Fire</title>
+     <link rel="stylesheet" href="./css/styles.css">
+     <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body>
+  <header>
+    <img src="/public/images/Bleu Fire Fitness.svg" alt="blue flame">
+  </header>
+  
+  <nav>
+    <a href="/">Home</a>
+    {{#if loggedIn}}
+    <button id="logout" class="btn-no-style">Logout</button>
+    {{else}}
+    <a href="/login">Login</a>
+    {{/if}}
+  </nav>
+  
+  <main>
+    <aside>
+      <h2>Title</h2>
+    </aside>
+    <div class="workoutJournal">
+      {{{body}}}
+    </div>
+  </main>
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>
