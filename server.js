@@ -1,17 +1,17 @@
-// const path = require('path');
-// const express = require('express');
+const path = require('path');
+const express = require('express');
 // const session = require('express-session');
-// const exphbs = require('express-handlebars');
+const exphbs = require('express-handlebars');
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-// const routes = require('./controllers');
+//const routes = require('./controllers');
+const helpers = require('./utils/helpers');
+
 const sequelize = require('./config/connection');
-const { Painting, User, WorkoutJournal } = require('./models');
+const { User, /*Painting,*/ WorkoutJournal, FoodEntry, FoodCategory } = require('./app/models');
 
-// const helpers = require('./utils/helpers');
-
-// const app = express();
-// const PORT = process.env.PORT || 3001;
+const app = express();
+const PORT = process.env.PORT || 3001;
 
 // const sess = {
 //   secret: 'Super secret secret',
@@ -25,18 +25,36 @@ const { Painting, User, WorkoutJournal } = require('./models');
 
 // app.use(session(sess));
 
-// const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({ helpers });
 
-// app.engine('handlebars', hbs.engine);
-// app.set('view engine', 'handlebars');
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(routes);
 
-// // Will start and auto create tables when this is in the server.js
-// sequelize.sync({ force: false }).then(() => {
-//   app.listen(PORT, () => console.log('Now listening'));
-// });
+app.get('/', (req, res) => {
+  res.render('homepage');
+});
+
+app.get('/login', (req, res) => {
+  res.render('login');
+});
+
+app.get('/workoutjournal', (req, res) => {
+  res.render('workoutjournal');
+});
+
+app.get('/foodjournal', (req, res) => {
+  res.render('foodjournal');
+});
+
+
+
+// Will start and auto create tables when this is in the server.js
+sequelize.sync({ force: true }).then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
+});

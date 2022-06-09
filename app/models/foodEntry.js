@@ -1,10 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
+const FoodCategory = require('./FoodCategory');
 
-const sequelize = require('../config/connection.js');
+const sequelize = require('../../config/connection.js');
 
-class foodEntry extends Model {}
+class FoodEntry extends Model {}
 
-foodEntry.init(
+FoodEntry.init(
 {
     id: {
       type: DataTypes.INTEGER,
@@ -14,28 +15,31 @@ foodEntry.init(
     time: {
       type: DataTypes.DATE,
       allowNull: false,
-      timestamps: automatic
+      defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
     },
     description: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false
     },
-    category: {
+    categoryId: {
         type: DataTypes.INTEGER,
         allowNull:false
     },
     calories: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         allowNull:false
     }
 },
     {
     sequelize,
-    timestamps: automatic,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'foodEntry',
     }
 );
 
-module.exports = foodEntry;
+FoodEntry.hasOne(FoodCategory, { foreignKey: 'categoryId', as: 'category' });
+FoodCategory.belongsTo(FoodEntry);
+
+module.exports = FoodEntry;

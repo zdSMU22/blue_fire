@@ -1,10 +1,11 @@
 // import models
 const User = require('./User');
-const WorkoutJournal = require('./workoutJournal');
-const Painting = require('./Painting');
-
+const WorkoutJournal = require('./WorkoutJournal');
+const FoodEntry = require('./FoodEntry');
+const FoodCategory = require('./FoodCategory');
+//const Painting = require('./Painting');
 
 
 module.exports = {
-    User, WorkoutJournal, Painting
+    User, /*Painting,*/ WorkoutJournal, FoodEntry, FoodCategory
 };
