@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const FoodCategory = require('./FoodCategory');
+const User = require('./User');
 
 const sequelize = require('../../config/connection.js');
 
@@ -25,6 +26,10 @@ FoodEntry.init(
         type: DataTypes.INTEGER,
         allowNull:false
     },
+    userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    }, 
     calories: {
         type: DataTypes.INTEGER,
         allowNull:false
@@ -39,7 +44,10 @@ FoodEntry.init(
     }
 );
 
-FoodEntry.hasOne(FoodCategory, { foreignKey: 'categoryId', as: 'category' });
-FoodCategory.belongsTo(FoodEntry);
+FoodCategory.hasMany(FoodEntry, { foreignKey: 'categoryId', as: 'entries' });
+FoodEntry.belongsTo(FoodCategory, { as: 'category' });
+
+FoodEntry.belongsTo(User, { as: 'user' });
+User.hasMany(FoodEntry, { foreignKey: 'userId', as: 'foodEntries' });
 
 module.exports = FoodEntry;
