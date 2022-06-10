@@ -8,7 +8,7 @@ const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
-const { User, /*Painting,*/ WorkoutJournal, FoodEntry, FoodCategory } = require('./app/models');
+const { User, WorkoutJournal, FoodEntry, FoodCategory } = require('./app/models');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
