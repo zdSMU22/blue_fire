@@ -11,15 +11,9 @@
     <h3>What type of workout did you complete today?</h3>
     <select id="brandFilter" class="form-control">
       <option>Choose workout</option>
-      <option>Walking</option>
-      <option>Running</option>
-      <option>Biking</option>
-      <option>Swimming</option>
-      <option>HIIT Training</option>
-      <option>Yoga</option>
-      <option>Pilates</option>
-      <option>Dance</option>
-        {{exercise_name}}
+      <option>{{exercise_name}}</option>
+    
+        
     </select>
 
     <h3>How many minutes did you workout?</h3>
@@ -39,6 +33,7 @@
       <option>60</option>
         {{exercise_minutes}}
     </select>
+    <button class="btn btn-primary" type="submit">Log my workout!</button>
   </div>
   {{!-- <h3>How long did you workout? <input name="num" type="number" placeholder="enter time in minutes" required></input> minute(s)</h3> --}}
   <h3>Calories Burned: <textarea></textarea>{{total_calories}}</h3>
