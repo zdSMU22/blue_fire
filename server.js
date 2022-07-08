@@ -4,7 +4,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-//const routes = require('./controllers');
+const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
@@ -34,7 +34,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use(routes);
+app.use(routes);
 
 app.get('/', (req, res) => {
   res.render('homepage');
@@ -51,8 +51,6 @@ app.get('/workoutjournal', (req, res) => {
 app.get('/foodjournal', (req, res) => {
   res.render('foodjournal');
 });
-
-
 
 // Will start and auto create tables when this is in the server.js
 sequelize.sync({ force: true }).then(() => {
