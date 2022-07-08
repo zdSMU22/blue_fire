@@ -1,8 +1,8 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"/>
 
 <section class="container">
-  {{!-- <h3 class="gallery-name">{{gallery.name}}</h3> --}}
-  <div class="pageType">
+
+  <div class="conatiner">
     <h1>Workout Journal</h1>
   </div>
 
@@ -11,23 +11,37 @@
     <h3>What type of workout did you complete today?</h3>
     <select id="brandFilter" class="form-control">
       <option>Choose workout</option>
-        {{exercise_name}}
+      <option>{{exercise_name}}</option>
+    
+        
     </select>
 
     <h3>How many minutes did you workout?</h3>
     <select id="minutes" class="form-control">
       <option>Choose time interval</option>
       <option>5</option>
+      <option>10</option>
+      <option>15</option>
+      <option>20</option>
+      <option>25</option>
+      <option>30</option>
+      <option>35</option>
+      <option>40</option>
+      <option>45</option>
+      <option>50</option>
+      <option>55</option>
+      <option>60</option>
         {{exercise_minutes}}
     </select>
+    <button class="btn btn-primary" type="submit">Log my workout!</button>
   </div>
   {{!-- <h3>How long did you workout? <input name="num" type="number" placeholder="enter time in minutes" required></input> minute(s)</h3> --}}
-  <h3>Calories Burned: {{total_calories}}</h3>
+  <h3>Calories Burned: <textarea></textarea>{{total_calories}}</h3>
 
   <div class="workoutLog">
     
   </div>
 
-  <script src=""></script>
+  <script src="/controllers/api/workout.js"></script>
   
 </section>

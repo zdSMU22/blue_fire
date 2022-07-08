@@ -8,7 +8,7 @@ const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
-const { User, /*Painting,*/ WorkoutJournal, FoodEntry, FoodCategory } = require('./app/models');
+const { User, WorkoutJournal, FoodEntry, FoodCategory } = require('./app/models');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -42,6 +42,10 @@ app.get('/', (req, res) => {
 
 app.get('/login', (req, res) => {
   res.render('login');
+});
+
+app.get('/register', (req, res) => {
+  res.render('register');
 });
 
 app.get('/workoutjournal', (req, res) => {
